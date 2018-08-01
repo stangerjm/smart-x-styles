@@ -1,0 +1,13 @@
+////
+/// @group layout
+/// @author James Stanger
+////
+
+/// Defines a small container for formatting icons
+.layout-container-icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+  padding: 10px;
+}

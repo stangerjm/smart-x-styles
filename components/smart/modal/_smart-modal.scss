@@ -1,0 +1,128 @@
+////
+/// @group smart-modal
+/// @author James Stanger
+////
+
+/// Defines an overlay container that will deny access to the UI while the modal is open.
+/// <br> *Note: this component is hidden by default. The example below is displayed by default for demonstration purposes only.
+/// @requires {variable} level-100
+/// @requires {variable} theme-black
+/// @example njk
+///   {% include 'smart-modal.njk' %}
+.smart-modal {
+  /* Hide by default */
+  display: none;
+
+  position: fixed;
+  z-index: $level-100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+
+  /* fallback color */
+  background-color: $theme-black;
+  background-color: rgba($theme-black, 0.5);
+}
+
+/// Defines a sub-container that will center the modal in the middle of the overlay.
+/// @example njk
+///   {% include 'smart-modal.njk' %}
+.smart-modal--content {
+  position: fixed;
+  background: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  max-height: 95vh;
+  overflow: auto;
+
+  @media screen and (max-width: 820px) {
+    width: 80%;
+  }
+}
+
+/// Defines a header container for the modal.
+/// @requires {variable} theme-generic
+/// @example html
+///   <header class="smart-modal--head">
+///     <button class="smart-modal--close" type="button">x</button>
+///     <h3 class="smart-modal--title">My Modal</h3>
+///   </header>
+.smart-modal--head {
+  background: $theme-generic;
+  padding: 5px;
+  text-align: right;
+}
+
+/// Styles a close button for the modal if button is not also a bit-btn component.
+/// @requires {variable} theme-black
+/// @requires {variable} theme-generic
+/// @name .smart-modal--close
+/// @example html
+///   <header class="smart-modal--head">
+///     <button class="smart-modal--close" type="button">x</button>
+///   </header>
+.smart-modal--close:not(.bit-btn) {
+  height: 30px;
+  width: 45px;
+  padding: 0;
+  background: $theme-generic;
+  border: none;
+  box-shadow: $theme-black 0 0 3px 0;
+  border-radius: 5px;
+}
+
+/// Sets styles for the title of the modal
+/// @example html
+///   <h3 class="smart-modal--title">My Modal</h3>
+.smart-modal--title {
+  font-size: 35px;
+  margin: 5px 0;
+  text-align: center;
+
+  @media screen and (max-width: 820px) {
+    font-size: 25px;
+  }
+}
+
+/// Styles an alternative style for the title indicating some sort of warning
+/// @example html
+///   <h3 class="smart-modal--title smart-modal--warningTitle">My Modal</h3>
+.smart-modal--warningTitle {
+  text-align: center;
+  color: red;
+}
+
+/// Defines the main content container for the modal
+/// <br> *Note: this container is essential for any UI that uses absolute or fixed positioning inside the modal.
+/// @example markup
+///   <article class="smart-modal--body">
+///     <!-- CONTENT GOES HERE -->
+///   </article>
+.smart-modal--body {
+  position: static;
+}
+
+/// Defines a footer container for the modal
+/// @requires {variable} theme-generic
+/// @example html
+///   <footer class="smart-modal--footer">
+///     <button class="smart-modal--footerItem bit-btn bit-btn-clickable">Submit</button>
+///     <button class="smart-modal--footerItem smart-modal--close bit-btn bit-btn-clickable" type="button">Close</button>
+///   </footer>
+.smart-modal--footer {
+  padding: 5px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: $theme-generic;
+}
+
+/// Styles a single item in the modal footer
+/// @see .smart-modal--footer
+.smart-modal--footerItem {
+  margin: 0 5px;
+}

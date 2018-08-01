@@ -1,0 +1,64 @@
+@import "../global/variables";
+
+////
+/// @group Base
+/// @author James Stanger
+////
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  /* Fixes scrollbar bug on IE */
+  -ms-overflow-style: scrollbar;
+}
+
+/// Sets default body styles.
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Helvitica, Arial, FreeSans, sans-serif;
+}
+
+/// Sets default header styles.
+h1, h2, h3, h4, h5, h6 {
+  color: $theme-black;
+}
+
+/// Sets default heading 1 styles.
+h1 {
+  font-size: 50px;
+  text-shadow: 1px 1px 0 $theme-white;
+  font-family: arial $theme-black, arial, sans-serif;
+}
+
+/// Sets default heading 2 styles.
+h2 {
+  font-size: 23px;
+}
+
+/// Sets default heading 3 styles.
+h3 {
+  font-size: 21px;
+}
+
+/// Sets default heading 4 styles.
+h4 {
+  font-size: 19px;
+}
+
+/// Sets default heading 5 styles.
+h5 {
+  font-size: 17px;
+}
+
+/// Sets default heading 6 styles.
+h6 {
+  font-size: 15px;
+}
+
+/// Sets default section styles.
+article, aside, dialog, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}

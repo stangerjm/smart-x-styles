@@ -1,0 +1,134 @@
+////
+/// @group smart-details
+/// @author James Stanger
+////
+
+/// Defines a container that will layout details in a uniform way.
+/// <br> *Note: This selector may not contain any styles, but it is
+///       used to target the list by parent components and by JavaScript.
+/// @example njk
+///   {% set detailsClass = 'smart-details' %}
+///   {% include 'smart-details.njk' %}
+.smart-details {}
+
+/// Defines an outlined container that will layout details in a uniform way.
+/// @requires {variable} theme-black
+/// @example njk
+///   {% set detailsClass = 'smart-details-outlined' %}
+///   {% include 'smart-details.njk' %}
+.smart-details-outlined {
+  border: 1px solid $theme-black;
+  border-radius: 5px;
+}
+
+/// Optional layout for the header if more than just the title is desired.
+/// @requires {variable} break-sml
+/// @example html
+///   <header class="smart-details--header smart-details--headerLayout">
+///     <h3 class="smart-details--heading">Title</h3>
+///     <div class="layout-container-icons">
+///       <span type="button" class="bit-icon-back"></span>
+///       <span type="button" class="bit-icon-edit"></span>
+///       <span type="button" class="bit-icon-delete"></span>
+///     </div>
+.smart-details--headerLayout {
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (max-width: $break-sml) {
+    flex-direction: column;
+  }
+}
+
+/// Styles the header of the details container.
+/// @requires {variable} theme-black
+/// @requires {variable} theme-generic
+/// @example html
+///   <header class="smart-details--header">
+///     <h3 class="smart-details--heading">Details</h3>
+///   </header>
+.smart-details--header {
+  border-radius: 5px 5px 0 0;
+  border-bottom: 1px solid $theme-black;
+  background: $theme-generic;
+}
+
+/// Ensures that the heading of the details container is positioned properly.
+/// @example html
+///   <header class="smart-details--header">
+///     <h3 class="smart-details--heading">Details</h3>
+///   </header>
+.smart-details--heading {
+  padding: 10px;
+  margin: 0;
+}
+
+/// Defines a container for each column of the details element to layout evenly.
+/// @requires {variable} break-med
+/// @example markup
+///   <div class="smart-details--listContainer">
+///     <!-- lists go here -->
+///     <dl class="smart-details--list">...</dl>
+///     <dl class="smart-details--list">...</dl>
+///   </div>
+.smart-details--listContainer {
+  display: flex;
+
+  @media screen and (max-width: $break-med) {
+    flex-direction: column;
+  }
+}
+
+/// Defines a container for each detail to layout in a column.
+/// @example njk
+///   {% set detailItems = [
+///       {  Name: "James",  Age: 24,  Student: false,  Position: 'ITS3',  MoreInfo: 'more',  AnotherProp: 'another'},
+///       {  MoreAbout: 'About me', test1: 'test', test2: 'test2', test3: 'test3' }
+///   ] %}
+///   {% include 'smart-details.njk' %}
+.smart-details--list {
+  margin: 0;
+  width: 100%;
+}
+
+/// Defines a container to layout the detail key and value side-by-side.
+/// @requires {variable} break-xs
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl A DIV element is allowed under a DL element as per the W3 specification.
+/// @example html
+///   <div class="smart-details--detail">
+///     <dt class="smart-details--detailKey">Name</dt>
+///     <dd class="smart-details--detailValue">James</dd>
+///   </div>
+.smart-details--detail {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+
+  @media screen and (max-width: $break-xs) {
+    font-size: 0.75em;
+    overflow-wrap: break-word;
+  }
+}
+
+/// Styles both the key and value of a detail to be spaced evenly, from side-to-side.
+/// @see .smart-details--detail
+.smart-details--detailKey,
+.smart-details--detailValue {
+  width: 50%;
+  margin: 0;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+/// Styles a detail value
+/// @see .smart-details--detail
+.smart-details--detailValue {
+  text-align: left;
+}
+
+/// Styles a detail key
+/// @see .smart-details--detail
+.smart-details--detailKey {
+  text-align: right;
+  font-weight: bolder;
+}

@@ -1,0 +1,46 @@
+////
+/// @group bit-drop-list
+/// @author James Stanger
+////
+
+/// Sets an sublist to display beneath its parent. Will show only on hover.
+/// <br> *Note: This component will be hidden by default, and is triggered when a parent list is hovered over.
+/// @requires {variable} theme-generic
+/// @requires {variable} level-9
+/// @example njk
+///   {% include 'bit-dropList.njk' %}
+.bit-dropList {
+  /* display beneath parent. Hide by default. Set to outer z-index layer. */
+  position: absolute;
+  padding: 0;
+  display: none;
+  width: inherit;
+  margin-top: 3px;
+  z-index: $level-9;
+  list-style: none;
+  left: 0;
+  right: 0;
+  background: darken($theme-generic, 5%);
+}
+
+/// Styles an item contained within a dropList component.
+/// @requires {variable} theme-black
+/// @requires {variable} theme-secondary--light
+/// @example markup
+///   <li class="bit-dropList--item">
+///     <a class="bit-link" href="path/to/asset">Example</a>
+///   </li>
+.bit-dropList--item {
+  /* ensure children are not transparent */
+  padding: 3px 0;
+  box-shadow: $theme-black 0 0 1px inset;
+
+  &:hover {
+    transition: border-top-width 100ms;
+    border-top: 2px groove $theme-secondary--light;
+  }
+
+  & > .bit-link {
+    color: $theme-black;
+  }
+}

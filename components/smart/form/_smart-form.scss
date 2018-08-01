@@ -1,0 +1,63 @@
+////
+/// @group smart-form
+/// @author James Stanger
+////
+
+/// Defines a container that will layout form inputs in a uniform way.
+/// <br> *Note: This selector may not contain any styles, but it is
+///       used to target the list by parent components and by JavaScript.
+/// @example njk
+///   {% include 'smart-form.njk' %}
+.smart-form {}
+
+/// Defines a container that will layout the title of the form.
+/// @requires {variable} theme-generic
+/// @example html
+///   <header class="smart-form--titleSection">
+///     <h3 class="smart-form--title">Edit</h3>
+///   </header>
+.smart-form--titleSection {
+  background: $theme-generic;
+  padding: 10px 5px;
+}
+
+/// Styles the title of the form.
+/// @example html
+///   <header class="smart-form--titleSection">
+///     <h3 class="smart-form--title">Edit</h3>
+///   </header>
+.smart-form--title {
+  margin: 0;
+}
+
+/// Defines a container that ensures the fields layout correctly.
+/// @example njk
+///   {% set key = 'Name' %}
+///   {% set value = 'James' %}
+///   {% set type = 'text' %}
+///   {% set inputClass = 'bit-input-stacked' %}
+///   <section class="smart-form--fieldSection">
+///     {% include 'bit-input.njk' %}
+///   </section>
+.smart-form--fieldSection {
+  padding: 5px;
+}
+
+/// Defines layout for a single field in the form.
+/// <br> *Note: ideally, this would also be combined with the bit-input component.
+/// @example njk
+///   {% set key = 'Name' %}
+///   {% set value = 'James' %}
+///   {% set type = 'text' %}
+///   {% set inputClass = 'smart-form--field bit-input-stacked' %}
+///   <section class="smart-form--fieldSection">
+///     {% include 'bit-input.njk' %}
+///   </section>
+.smart-form--field {
+  margin: 10px 0;
+}
+
+// Override flatpickr (a third-party date-picker component) wrapper if used to be consistent with bit-input
+.smart-form--field > .flatpickr-wrapper {
+  display: block;
+}

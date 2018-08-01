@@ -1,0 +1,153 @@
+////
+/// @group smart-tabs
+/// @author James Stanger
+////
+
+/// Defines a container for a tabbed content area
+/// <br> *NOTE: The smart-tabs element associates the first tab, item, and action as a group. Similarly it will
+/// associate the second tab, item and action as a group and so on. This is done via JavaScript.
+/// @example njk
+///   {% include 'smart-tabs.njk' %}
+/// @example njk
+///   {% set secondTab = true %}
+///   {% include 'smart-tabs.njk' %}
+.smart-tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+/// Defines navigation container for the tabs and action
+/// @example html
+///   <nav class="smart-tabs--nav">
+///     <ul class="smart-tabs--tabList">
+///       <li class="smart-tabs--tab smart-tabs--activeTab">Technician Certification History</li>
+///       <li class="smart-tabs--tab">Technician Action History</li>
+///     </ul>
+///     <a href="/path/to/certHistory" class="smart-tabs--action bit-btn bit-btn-add smart-tabs--activeAction">Add</a>
+///     <a href="/path/to/actionHistory" class="smart-tabs--action bit-btn bit-btn-add">Add</a>
+///   </nav>
+.smart-tabs--nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+/// Defines list that contains the actual tabs
+/// @requires {variable} break-med
+/// @example html
+///   <ul class="smart-tabs--tabList">
+///     <li class="smart-tabs--tab smart-tabs--activeTab">Technician Certification History</li>
+///     <li class="smart-tabs--tab">Technician Action History</li>
+///   </ul>
+.smart-tabs--tabList {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @media screen and (max-width: $break-med) {
+    flex-direction: column;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+}
+
+/// Styles a single tab
+/// @requires {variable} theme-generic
+/// @requires {variable} break-med
+/// @example html
+///   <li class="smart-tabs--tab">Technician Certification History</li>
+.smart-tabs--tab {
+  padding: 10px 40px;
+  margin-right: 3px;
+  background: lighten($theme-generic, 10%);
+  border-radius: 5px 5px 0  0;
+
+  &:hover {
+    background: lighten($theme-generic, 5%);
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: $break-med) {
+    border-radius: 0;
+    margin-right: 0;
+
+    &:first-child {
+      border-radius: 5px 5px 0 0;
+    }
+
+    &:last-child {
+      border-radius: 0 0 5px 5px;
+    }
+  }
+}
+
+/// Styles an action button to be placed in the navigation
+/// @requires {variable} break-med
+/// @example markup
+///   <a href="/path/to/certHistory" class="smart-tabs--action bit-btn bit-btn-add smart-tabs--activeAction">Add</a>
+.smart-tabs--action {
+  display: none;
+  align-self: center;
+  margin: 5px;
+
+  @media screen and (max-width: $break-med) {
+    align-self: start;
+  }
+}
+
+/// Defines a container that will hold the content of the tabbed item
+/// @requires {variable} theme-generic
+/// @example markup
+///  <section class="smart-tabs">
+///    <nav class="smart-tabs--nav">...</nav>
+///    <article class="smart-tabs--content">
+///      <!-- Content goes here! -->
+///    </article>
+///  </section>
+.smart-tabs--content {
+  /* Flex available content on all browsers */
+  flex: 1 0 auto;
+
+  padding: 20px;
+  background: $theme-generic;
+}
+
+/// Defines container for an item associated with a corresponding tab.
+/// @example markup
+///  <section class="smart-tabs">
+///    <nav class="smart-tabs--nav">...</nav>
+///    <article class="smart-tabs--content">
+///      <div class="smart-tabs--item">
+///        <!-- Item one content goes here -->
+///      </div>
+///      <div class="smart-tabs--item">
+///        <!-- Item two content goes here -->
+///      </div>
+///    </article>
+///  </section>
+.smart-tabs--item {
+  display: none;
+}
+
+/// Sets styles for an active item and action
+/// @example markup
+///   <div class="smart-tabs--item smart-tabs--activeItem">...</div>
+///   <a href="..." class="smart-tabs--action smart-tabs--activeAction">...</a>
+.smart-tabs--activeItem,
+.smart-tabs--activeAction {
+  display: block;
+}
+
+/// Sets styles for an active tab
+/// @requires {variable} theme-generic
+/// @example markup
+///   <li class="smart-tabs--tab smart-tabs--activeTab">...</li>
+.smart-tabs--activeTab {
+  background: $theme-generic;
+
+  &:hover {
+    /* Ensure active tab stays the same color on hover */
+    background: $theme-generic;
+  }
+}

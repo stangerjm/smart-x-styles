@@ -1,0 +1,105 @@
+@import "variables";
+@import "../config";
+
+////
+/// @author James Stanger
+/// @group Mixins
+////
+
+/// Mixin to hide element.
+/// @access public
+@mixin hide() {
+  display: none;
+}
+
+/// Mixin to include an image in an icon element.
+/// @access public
+/// @param {String} $iconName - Name of the icon file.
+/// @param {Number} $width [15px] - Width of the icon.
+/// @param {Number} $height [15px] - Height of the icon.
+/// @example scss - Basic use
+///   .user-icon {
+///     @include icon-url("user", 13px);
+///  }
+@mixin icon-url($iconName, $width: 15px, $height: 15px) {
+  background: url($img-directory + "/" + $iconName + ".svg") no-repeat;
+  width: $width;
+  height: $height;
+}
+
+/// Sets base styles for an icon. Optionally will include a character as the icon.
+/// @param {String} $content [" "] - Optional character to use as icon.
+/// @access public
+/// @example scss - Basic use
+///   .icon {
+///     @include icon();
+///   }
+/// @example scss - Include a character as an icon
+///   .icon {
+///     @include icon("*");
+///   }
+@mixin icon($content: " ") {
+  content: $content;
+  display: inline-block;
+}
+
+/// Sets a drop-arrow icon to the very right of an element
+/// @requires {variable} img-directory
+/// @param {Number} $position - background position.
+/// @param {Number} $size - size of the arrow.
+/// @param {Number} $top [17px] - top absolute position value.
+@mixin drop-arrow($position, $size, $top: 17px) {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 23px;
+  right: 10px;
+  top: $top;
+  background: url($img-directory + "/sort.svg") 0 $position unquote("/") $size no-repeat;
+}
+
+/// Styles a button to have a click animation.
+/// @requires {variable} theme-black
+/// @example scss - Basic use
+///     .clickable-btn {
+///         @include clickable;
+///     }
+@mixin clickable {
+  box-shadow: 2px 1px 1px $theme-black;
+
+  &:active {
+    box-shadow: 1px 1px 0;
+    transform: translate(2px, 2px);
+  }
+}
+
+/// Styles a button to have a basic click animation with no shadow.
+/// @example scss - Basic use
+///     .clear-btn {
+///         @include clickable-shadowless;
+///     }
+@mixin clickable-shadowless {
+  &:active {
+    transform: translate(2px, 2px);
+  }
+}
+
+/// Removes background of a button.
+@mixin bit-btn-noBackground {
+  background: none;
+}
+
+/// Stacks bit-input component
+@mixin stack-input() {
+  display: block;
+
+  .bit-input--label {
+    display: block;
+  }
+}
+
+/// Applies a linear-gradient in the direction specified.
+/// @param {String} $direction - direction gradient should be applied in.
+@mixin apply-gradient($direction) {
+  background: linear-gradient($direction, lighten($theme-main--dark, 25%), saturate($theme-main--light, 30%));
+}

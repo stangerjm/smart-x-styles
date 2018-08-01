@@ -1,0 +1,22 @@
+////
+/// @group block-action-container
+/// @author James Stanger
+////
+
+/// Container that holds action items in a table cell.
+/// @example html
+///   <div class="block-actionContainer">
+///     <a class="bit-icon-edit" href="#"></a>
+///     <a class="bit-icon-details" href="#"></a>
+///     <a class="bit-icon-delete" href="#"></a>
+///   </div>
+.block-actionContainer {
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > [class*=bit-icon] {
+    padding: 3px;
+  }
+}

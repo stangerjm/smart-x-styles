@@ -1,0 +1,83 @@
+////
+/// @group layout
+/// @author James Stanger
+////
+
+@supports (display: grid) {
+  /// Defines a grid container
+  .layout-grid {
+    display: grid;
+    height: 100vh;
+  }
+
+  /// Grid layout for browsers that support CSS Grid
+  /// <br>*Note, there is an undocumented fallback for other browsers
+  .layout-main {
+    /*
+      Grid representation:
+
+         1                    2
+      1 +--------------------+
+        |  NAV     - auto    |
+      2 +--------------------+
+        |  SEARCH  - auto    |
+      3 +--------------------+
+        |                    |
+        |  CONTENT - fill    |
+        |                    |
+      4 +--------------------+
+        |  FOOTER  - 50px    |
+      5 +--------------------+
+    */
+    grid-template: "nav    " auto
+                   "search " auto
+                   "content" 1fr
+                   "footer " 50px
+                   / 1fr;
+  }
+
+  /// Defines a nav area
+  .layout-main--nav {
+    grid-area: nav;
+    min-height: auto;
+  }
+
+  /// Defines a search area
+  .layout-main--search {
+    grid-area: search;
+  }
+
+  /// Defines a content area
+  .layout-main--content {
+    grid-area: content;
+  }
+
+  /// Defines a footer area
+  .layout-main--footer {
+    grid-area: footer;
+  }
+}
+
+/* Legacy grid for older browsers (ie 11) */
+.layout-main {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.layout-main--nav {
+  min-height: 100px;
+  flex: none;
+}
+
+.layout-main--search {
+  flex: none;
+}
+
+.layout-main--content {
+  flex: 1 auto;
+}
+
+.layout-main--footer {
+  flex: none;
+}

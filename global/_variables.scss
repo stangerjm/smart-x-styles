@@ -1,0 +1,72 @@
+////
+/// @group Variables
+/// @author James Stanger
+////
+
+//*************************
+// MEDIA BREAKS
+//*************************
+
+/// Smallest break
+/// @type Number
+$break-xs: 480px;
+
+/// Small break
+/// @type Number
+$break-sml: 520px;
+
+/// Medium break
+/// @type Number
+$break-med: 768px;
+
+/// Large break
+/// @type Number
+$break-lrg: 1024px;
+
+//*************************
+// Z-INDICES
+//*************************
+
+/// Smallest Z-index level
+/// @type Number
+$level-0: -1;
+
+/// Z-index level 1
+/// @type Number
+$level-1: 10;
+
+/// Z-index level 2
+/// @type Number
+$level-2: 20;
+
+/// Z-index level 3
+/// @type Number
+$level-3: 30;
+
+/// Z-index level 4
+/// @type Number
+$level-4: 40;
+
+/// Z-index level 5
+/// @type Number
+$level-5: 50;
+
+/// Z-index level 6
+/// @type Number
+$level-6: 60;
+
+/// Z-index level 7
+/// @type Number
+$level-7: 70;
+
+/// Z-index level 8
+/// @type Number
+$level-8: 80;
+
+/// Z-index level 9
+/// @type Number
+$level-9: 90;
+
+/// Top Z-index level
+/// @type Number
+$level-100: 999;

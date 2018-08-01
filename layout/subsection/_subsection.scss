@@ -1,0 +1,35 @@
+////
+/// @group layout
+/// @author James Stanger
+////
+
+/// Defines a subsection to layout a child of another layout container
+/// @example markup
+///   <main class="layout-main--content">
+///     <section class="layout-subsection">
+///       <header class="layout-subsection--header">...</header>
+///       <main class="layout-subsection--main">...</main>
+///       <footer class="layout-subsection--footer">...</footer>
+///     </section>
+///   </main>
+.layout-subsection {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/// Defines a header subsection container
+.layout-subsection--header {
+  flex: 0 auto;
+}
+
+/// Defines a main subsection container
+.layout-subsection--main {
+  flex: 1 0 auto;
+}
+
+/// Defines a footer subsection container
+.layout-subsection--footer {
+  flex: 1 0 auto;
+  margin-top: 10px;
+}

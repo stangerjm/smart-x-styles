@@ -1,0 +1,104 @@
+////
+/// @group smart-search
+/// @author James Stanger
+////
+
+/// Defines a container that will hold all of the search components.
+/// <br>*Note: the state will be toggled by clicking the search button, and will be managed via JavaScript.
+/// @requires {variable} theme-generic
+/// @example njk
+///   <!-- Default state -->
+///   {% include 'smart-search.njk' %}
+/// @example njk
+///   <!-- Expanded state -->
+///   {% set isExpanded = true %}
+///   {% include 'smart-search.njk' %}
+.smart-search {
+  background: $theme-generic;
+}
+
+/// Defines a container for the header of the smart-search component.
+/// @example html
+///   <header class="smart-search--heading">
+///     <h2 class="smart-search--heading">Search</h2>
+///     <span class="smart-search--action bit-icon-search"></span>
+///   </header>
+.smart-search--heading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-left: 10px;
+}
+
+/// Styles the title of a smart-search component.
+/// @requires {variable} break-med
+/// @example html
+///   <h3 class="smart-search--title">Search</h3>
+.smart-search--title {
+  margin-right: 10px;
+
+  @media screen and (max-width: $break-med) {
+    /* Force other items to next row */
+    width: 100%;
+  }
+}
+
+/// Styles the action buttons on the smart-search header.
+/// @example html
+///   <span class="smart-search--action bit-icon-search"></span>
+.smart-search--action {
+  /* Align action button to the right */
+  margin: 10px 10px 10px auto;
+}
+
+/// Defines a container that will encompass all fields
+/// <br>*Note: primary purpose is to hide and position its immediate child: .smart-search--toggleContainer.
+/// <br>*Note: the height of this container is dynamically set via JavaScript so that it remains responsive.
+/// @example markup
+///   <div class="smart-search--fieldContainer">
+///     <div class="smart-search--toggleContainer">...</div>
+///   </div>
+.smart-search--fieldContainer {
+  overflow: hidden;
+  position: relative;
+  transition: min-height 600ms;
+}
+
+/// Styles a field of the search bar. Serves as a wrapper for the bit-input component.
+/// <br>*Note: should be used in combination with .bit-input component.
+/// @example njk
+///   {% set inputClass = 'smart-search--field bit-input' %}
+///   {% set key = 'Name' %}
+///   {% set type = 'text' %}
+///   {% include 'bit-input.njk' %}
+.smart-search--field {
+  width: 100%;
+  padding: 5px;
+}
+
+/// Defines a container that will slide in and out of view when toggled.
+/// <br>*Note: toggle functionality is handled in JavaScript.
+/// @example markup
+///   <div class="smart-search--fieldContainer">
+///     <div class="smart-search--toggleContainer">
+///       <!-- FIELDS GO HERE -->
+///     </div>
+///   </div>
+.smart-search--toggleContainer {
+  position: absolute;
+  padding: 10px;
+  transition: transform 800ms ease-in-out;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/// The class that is applied to smart-search--fieldContainer to hide the toggle container and to toggle the search button
+/// <br>*Note: this class is toggled on the smart-search--fieldContainer via JavaScript on click
+/// <br>*Note: this should be put on the smart-search--fieldContainer in the markup if it SHOULD NOT be expanded by default.
+.is-hidden {
+  min-height: 0;
+
+  & > .smart-search--toggleContainer {
+    transform: translateY(-800px);
+  }
+}

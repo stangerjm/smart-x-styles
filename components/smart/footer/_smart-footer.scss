@@ -1,0 +1,17 @@
+////
+/// @group smart-footer
+/// @author James Stanger
+////
+
+/// Defines a simple footer.
+/// @example njk
+///   {% include 'footer.njk' %}
+.smart-footer {
+  background: $theme-main;
+  font-size: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,115 @@
+////
+/// @group bit-buttons
+/// @author James Stanger
+////
+
+/// Sets base styles for a button.
+/// @requires {variable} theme-main--deep
+/// @requires {variable} theme-white
+/// @example html
+///   <button class="bit-btn">Click</button>
+.bit-btn {
+  border-radius: 5px;
+  padding: 0 3px;
+  min-height: 35px;
+  min-width: 60px;
+  background: $theme-main--deep;
+  border: none;
+  color: $theme-white;
+  box-sizing: content-box;
+  text-align: center;
+  text-decoration: none;
+}
+
+/// Styles clickable button animation.
+/// <br>*Note: This is NOT necessary on elements such as bit-btn-search, bit-btn-add, etc. These already have the functionality built in.
+/// @requires {mixin} clickable
+/// @example html
+///   <button type="button" class="bit-btn bit-btn-clickable">Click</button>
+.bit-btn-clickable {
+  @include clickable;
+}
+
+/// Styles a search button.
+/// @requires {mixin} clickable
+/// @requires {mixin} icon
+/// @requires {mixin} icon-url
+/// @example html
+///   <button type="button" class="bit-btn bit-btn-search">Search</button>
+.bit-btn-search {
+  @include clickable;
+
+  &:before {
+    @include icon;
+    @include icon-url('search')
+  }
+}
+
+/// Styles an add button.
+/// @requires {mixin} clickable
+/// @requires {mixin} icon
+/// @example html
+///   <button type="button" class="bit-btn bit-btn-add">Add</button>
+.bit-btn-add {
+  @include clickable;
+  line-height: 35px;
+  display: inline-block;
+
+  &:before {
+    @include icon("+");
+    font-weight: bolder;
+  }
+}
+
+/// Styles a reset button.
+/// @requires {mixin} clickable
+/// @requires {mixin} icon
+/// @requires {mixin} icon-url
+/// @example html
+///   <button type="button" class="bit-btn bit-btn-reset">Reset</button>
+.bit-btn-reset {
+  @include clickable;
+  &:before {
+    @include icon;
+    @include icon-url('reset');
+  }
+}
+
+/// Styles an expand button.
+/// @requires {mixin} bit-btn-noBackground
+/// @requires {mixin} clickable-shadowless
+/// @requires {mixin} icon
+/// @requires {variable} theme-secondary--deep
+/// @example html
+///   <button type="button" class="bit-btn bit-btn-expand"></button>
+.bit-btn-expand {
+  @include bit-btn-noBackground;
+  @include clickable-shadowless;
+  line-height: 1.6;
+
+  &:after {
+    @include icon("+");
+    font-size: 15px;
+    font-weight: 900;
+    width: 1.8em;
+    height: 1.8em;
+    text-align: center;
+    border-radius: 1em;
+    background: $theme-secondary--deep;
+  }
+}
+
+/// Styles an exit button.
+/// @requires {mixin} clickable
+/// @requires {mixin} icon
+/// @requires {mixin} icon-url
+/// @example html
+///   <button type="button" class="bit-btn bit-btn-exit"></button>
+.bit-btn-exit {
+  @include clickable;
+
+  &:before {
+    @include icon();
+    @include icon-url('exit');
+  }
+}

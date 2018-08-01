@@ -1,0 +1,151 @@
+////
+/// @group block-nav-list
+/// @author James Stanger
+////
+
+/// Defines a container that will hold the responsive navigation list
+/// and the mobile-oriented expand button.
+/// <br> *Note: This selector may not contain any styles, but it
+///       is used to target the list by parent components and by JavaScript.
+/// @example njk
+///   {% include 'block-navList.njk' %}
+.block-navList {}
+
+/// Styles the responsive navigation list.
+/// @requires {variable} theme-main--dark
+/// @requires {variable} level-9
+/// @requires {variable} break-med
+/// @example html
+///   <ul class="block-navList--list nav-show">
+///     <li class="block-navList--item"><a class="bit-link" href="#">Home</a></li>
+///     <li class="block-navList--item"><a class="bit-link" href="#">Main</a></li>
+///     <li class="block-navList--item"><a class="bit-link" href="#">Contact</a></li>
+///   </ul>
+.block-navList--list {
+  display: flex;
+  flex-direction: row;
+  background: lighten($theme-main--dark, 20%);
+
+  margin: 0;
+  padding-left: 0;
+  z-index: $level-9;
+
+  @media screen and (max-width: $break-med) {
+    /* mobile list style */
+    /* hide by default */
+    display: block;
+
+    /* Translate nav list the width of the nav minus an extra 50px to be just off of the left side of the screen */
+    $listWidth: 100%;
+    width: $listWidth;
+    transform: translateX(-$listWidth - 50);
+    transition: transform 600ms ease-in-out;
+
+    position: absolute;
+    left: 0;
+
+    /* show when nav-show class is applied and only on medium screen */
+    &.nav-show {
+      display: flex;
+      flex-direction: column;
+      transform: none;
+    }
+  }
+}
+
+/// Styles an item in the navigation list.
+/// @requires {variable} theme-secondary--deep
+/// @requires {variable} break-med
+/// @example html
+///  <ul class="block-navList--list">
+///    <li class="block-navList--item">
+///      <a href="#" class="bit-link">Home</a>
+///    </li>
+///  </ul>
+.block-navList--item {
+  list-style: none;
+  box-shadow: 0 0 1px inset;
+  padding: 3px 0;
+  text-align: center;
+  position: relative;
+  flex: 1 auto;
+
+  &:hover {
+    /* apply transitions and border only when not mobile. */
+    transition: border-top-width 100ms;
+    border-top: 2px groove $theme-secondary--deep;
+    margin-top: -2px;
+
+    .bit-dropList {
+      /* show any sublists on hover */
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: $break-med) {
+    /* resize list items on mobile */
+    padding: 5px;
+    position: relative;
+
+    &:hover {
+      border: none;
+      margin: 0;
+    }
+  }
+}
+
+//Ensure all links in the nav are visible
+.block-navList--item > .bit-link {
+  color: $theme-white;
+}
+
+/// Places drop-down symbol after the element.
+/// *Note: this should be applied to the <a> element directly before a bit-dropList in a block-navList.
+/// @example html
+///  <ul class="block-navList--list">
+///    <li class="block-navList--item">
+///      <a href="#" class="bit-link block-navList--sublistHeading">Home</a>
+///    </li>
+///  </ul>
+.block-navList--sublistHeading {
+  &:after {
+    content: "▾";
+    margin-left: 4px;
+  }
+}
+
+/// Styles an expand button to expand the navigation on small screens.
+/// <br> *Note: The expand button will only appear on small screens.
+/// @requires {variable} theme-secondary--light
+/// @requires {variable} break-med
+/// @example html
+///   <div class="block-navList--expand">
+///     <div class="block-navList--expandLine"></div>
+///     <div class="block-navList--expandLine"></div>
+///     <div class="block-navList--expandLine"></div>
+///   </div>
+.block-navList--expand {
+  /* hide by default */
+  display: none;
+
+  /* style expand button when screen is small */
+  @media screen and (max-width: $break-med) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border: 2px solid $theme-secondary--light;
+    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/// Styles a line of the block-navList--expand button.
+/// @requires {variable} theme-black
+.block-navList--expandLine {
+  width: 60%;
+  margin: 4px;
+  border: 2px solid $theme-black;
+}

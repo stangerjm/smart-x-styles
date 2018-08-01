@@ -1,0 +1,76 @@
+////
+/// @group smart-accordion
+/// @author James Stanger
+////
+
+/// Defines a responsive accordion.
+/// <br> *NOTE: As of now, these styles are only to support the Vue.js implementation of the Smart-Accordion.
+///             This component will not work in the example below or in the vanilla version of this framework.
+/// @example njk
+///   {% include 'smart-accordion.njk' %}
+.smart-accordion {
+  width: 100%;
+}
+
+/// Styles the toggle button for the accordion.
+/// @requires {variable} theme-generic
+/// @requires {variable} theme-main
+/// @example html - Not expanded
+///   <button class="smart-accordion--toggle">Click to expand</button>
+/// @example html - Expanded
+///   <button class="smart-accordion--toggle is-expanded">Click to expand</button>
+.smart-accordion--toggle {
+  padding: 5px 20px;
+  position: relative;
+  z-index: 20;
+  display: block;
+  cursor: pointer;
+  min-height: 50px;
+  width: 100%;
+  background: $theme-generic;
+  border: none;
+  text-align: left;
+
+  &:hover {
+    background: lighten($theme-generic, 5%);
+
+    &:after {
+      /* Only apply drop-arrow on hover */
+      @include drop-arrow(-11px, 15px);
+    }
+  }
+
+  &.is-expanded {
+    /* Styles for expanded smart-accordion */
+    background: saturate($theme-main, 10%);
+
+    &:hover {
+      &:after {
+        /* Only apply drop-arrow on hover */
+        @include drop-arrow(10px, 15px, 10px);
+      }
+    }
+  }
+}
+
+/// Styles the toggle button for the accordion.
+/// @requires {variable} theme-generic
+/// @example markup
+///   <article class="smart-accordion--content">
+///     <!-- Anything can go here! -->
+///     <h1>Demo!</h1>
+///   </article>
+.smart-accordion--content {
+  overflow: hidden;
+  height: 0;
+  position: relative;
+  z-index: 10;
+  transition: height 500ms ease-in-out;
+  background: lighten($theme-generic, 10%);
+  box-shadow: 0 0 2px 0 inset;
+
+  > * {
+    /* Immediate children of smart-accordion--content should not have a margin so content can be resized properly. */
+    margin: 0;
+  }
+}

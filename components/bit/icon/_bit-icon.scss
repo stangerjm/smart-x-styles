@@ -1,0 +1,135 @@
+////
+/// @group bit-icons
+/// @author James Stanger
+////
+
+/// Inserts a user / profile icon after the element.
+/// @requires {mixin} icon
+/// @requires {mixin} icon-url
+/// @example html
+///   <span class="bit-icon-user"></span>
+.bit-icon-user {
+  &:after {
+    @include icon;
+    @include icon-url('user', 20px, 20px);
+  }
+}
+
+/// Inserts a sort icon after the element.
+/// @requires {mixin} icon
+/// @requires {mixin} icon-url
+/// @example html
+///   <span class="bit-icon-sort"></span>
+.bit-icon-sort {
+  display: inline-block;
+  &:after {
+    margin-left: 3px;
+    @include icon;
+    @include icon-url('sort', 15px, 15px);
+  }
+}
+
+/// Indicates that the icon requested was not found. Used primarily in JavaScript.
+/// @requires {mixin} icon
+/// @example html
+///   <span class="bit-icon-error"></span>
+.bit-icon-error {
+  &:after {
+    @include icon('!');
+    color: red;
+  }
+}
+
+/// Inserts a details icon after the element.
+/// @requires {mixin} icon
+/// @requires {mixin} icon-url
+/// @example html
+///   <span class="bit-icon-details"></span>
+.bit-icon-details {
+  &:after {
+    @include icon;
+    @include icon-url('details', 20px, 20px);
+
+    margin-right: 0;
+  }
+}
+
+/// Inserts a delete icon after the element.
+/// @requires {mixin} icon
+/// @requires {mixin} icon-url
+/// @example html
+///   <span class="bit-icon-delete"></span>
+.bit-icon-delete {
+  &:after {
+    @include icon();
+    @include icon-url('delete', 20px, 20px);
+  }
+}
+
+/// Inserts an edit icon after the element.
+/// @requires {mixin} icon
+/// @requires {mixin} icon-url
+/// @example html
+///   <span class="bit-icon-edit"></span>
+.bit-icon-edit {
+  &:after {
+    @include icon;
+    @include icon-url('edit', 20px, 20px);
+  }
+}
+
+/// Inserts a back arrow icon after the element.
+/// @requires {mixin} icon
+/// @requires {mixin} icon-url
+/// @example html
+///   <span class="bit-icon-back"></span>
+.bit-icon-back {
+  &:after {
+    @include icon;
+    @include icon-url('back', 25px, 25px);
+  }
+}
+
+/// Inserts a calendar icon after the element.
+/// @requires {mixin} icon
+/// @requires {mixin} icon-url
+/// @example html
+///   <span class="bit-icon-calendar"></span>
+.bit-icon-calendar {
+  &:after {
+    @include icon;
+    @include icon-url('calendar', 20px, 20px);
+  }
+}
+
+/// Inserts a search icon before the element.
+/// @requires {mixin} icon
+/// @requires {mixin} icon-url
+/// @example html
+///   <span class="bit-icon-search"></span>
+.bit-icon-search {
+  padding: 0;
+  background: none;
+  border: none;
+
+  &:before {
+    @include icon;
+    @include icon-url('search-black', 25px, 25px);
+  }
+}
+
+/// Inserts an exit icon before the element.
+/// @requires {mixin} icon
+/// @requires {mixin} icon-url
+/// @example html
+///   <span class="bit-icon-exit"></span>
+.bit-icon-exit {
+  padding: 0;
+  background: none;
+  border: none;
+
+  &:before {
+    @include icon();
+    @include icon-url('exit-black', 20px, 20px);
+  }
+}

@@ -1,0 +1,241 @@
+////
+/// @group smart-table
+/// @author James Stanger
+////
+
+/// Defines a responsive table
+/// @example njk
+///   {% include 'smart-table.njk' %}
+/// @example njk
+///   {% set isExpanded = true %}
+///   {% include 'smart-table.njk' %}
+.smart-table {
+  width: 100%;
+  border-spacing: 0;
+  border: 1px solid $theme-black;
+  border-collapse: separate;
+
+  @media screen and (max-width: $break-lrg) {
+    table-layout: fixed;
+  }
+}
+
+/// Defines a container for the table headings
+/// @requires {variable} theme-generic
+/// @example html
+///   <table class="smart-table">
+///     <tr class="smart-table--row smart-table--head">
+///       <th class="smart-table--heading"> <a href="#" class="smart-table--link bit-icon-sort">Name</a></th>
+///       <th class="smart-table--heading"> <a href="#" class="smart-table--link bit-icon-sort">Age</a></th>
+///       <th class="smart-table--heading"> <a href="#" class="smart-table--link bit-icon-sort">Birthday</a></th>
+///     </tr>
+///   </table>
+.smart-table--head {
+  background: darken($theme-generic, 10%);
+}
+
+/// Styles a table heading element.
+/// @requires {variable} theme-black
+/// @requires {variable} break-med
+/// @requires {mixin} hide
+/// @example html
+///   <th class="smart-table--heading">Name</th>
+.smart-table--heading {
+  border: 1px solid $theme-black;
+  text-align: center;
+
+  @media screen and (max-width: $break-med) {
+    @include hide();
+  }
+}
+
+/// Styles a heading in the table cell itself. Will only be shown on small screens.
+/// @example markup
+///   <td class="smart-table--cell">
+///     <span class="smart-table--inlineHeading">Name: </span>
+///     James
+///   </td>
+.smart-table--inlineHeading {
+  display: none;
+  font-weight: bolder;
+  font-size: 1.1em;
+}
+
+/// Defines a container to place all TD and TH elements.
+/// <br> *Note: this element should most likely be a TR element.
+/// @requires {variable} theme-main--light
+/// @requires {variable} break-med
+/// @example markup
+///   <tr class="smart-table--row">
+///     <!-- table cells or headings go here -->
+///   </tr>
+.smart-table--row {
+  text-align: center;
+
+  &:nth-child(even) {
+    background: $theme-main--light;
+  }
+
+  &:not(.smart-table--head):nth-child(odd) {
+    background: white;
+  }
+
+  @media screen and (max-width: $break-med) {
+    &:not(.smart-table--head) {
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+
+      /* justify content for IE layout */
+      justify-content: space-between;
+    }
+
+    &.record-is-expanded {
+      align-items: stretch;
+    }
+  }
+}
+
+/// Styles an individual cell of the table
+/// @requires {variable} theme-black
+/// @requires {variable} break-med
+/// @requires {mixin} hide
+/// @example markup
+///   <tr class="smart-table--row">
+///     <td class="smart-table--cell">
+///       <span class="smart-table--inlineHeading">Name: </span>
+///       James
+///     </td>
+///   </tr>
+.smart-table--cell {
+  border: 1px solid $theme-black;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+
+  @media screen and (max-width: $break-med) {
+    border: none;
+
+    &:not(.smart-table--key) {
+      @include hide();
+    }
+  }
+}
+
+/// Styles a cell to be centered in its own column.
+/// @example markup
+///   <td class="smart-table--cell smart-table--centeredCell">DATA</td>
+.smart-table--centeredCell {
+  text-align: center;
+}
+
+/// Styles a cell that should be displayed even when table is in mobile-responsive mode.
+/// @example html
+///   <table class="smart-table">
+///     <tr class="smart-table--row smart-table--head">
+///       <th class="smart-table--heading">Name</th>
+///       <th class="smart-table--heading">Age</th>
+///     </tr>
+///     <tr class="smart-table--row">
+///       <td class="smart-table--cell smart-table--key">
+///         <span class="smart-table--inlineHeading">Name: </span>
+///         James (I SHOW EVEN ON MOBILE)
+///       </td>
+///       <td class="smart-table--cell">
+///         <span class="smart-table--inlineHeading">Age: </span>
+///         23 (I DO NOT)
+///       </td>
+///     </tr>
+///   </table>
+.smart-table--key {
+  min-width: 50px;
+  flex: 1;
+}
+
+/// Styles a link to be used in the table headings or elsewhere on the table
+/// @requires {variable} theme-black
+/// @example html
+///   <a href="#" class="smart-table--link">Name</a>
+.smart-table--link {
+  color: $theme-black;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/// Styles an expand button used on mobile screens to expand a collapsed table cell
+/// @requires {mixin} hide
+/// @requires {variable} break-med
+/// @see .bit-btn-expand
+/// @example markup
+///     <td class="smart-table--expand">
+///       <button class="bit-btn bit-btn-expand"></button>
+///     </td>
+.smart-table--expand {
+  @include hide();
+  position: relative;
+  right: 0;
+  top: 0;
+
+  @media screen and (max-width: $break-med) {
+    display: block;
+  }
+}
+
+/// Selector that triggers a cell to expand on mobile screens.
+/// <br> *Note: this should be applied dynamically when the .smart-table--expand button is clicked
+/// @requires {variable} break-med
+/// @requires {variable} theme-black
+/// @example njk
+///   {% set isExpanded = true %}
+///   {% include 'smart-table.njk' %}
+.record-is-expanded {
+  @media screen and (max-width: $break-med) {
+    flex-direction: column;
+    position: relative;
+
+    .smart-table--cell {
+      text-align: left;
+      border-bottom: 1px solid $theme-black;
+      margin: 5px 0;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+      display: block;
+      flex: none;
+
+      //for IE. Has no effect on Chrome or Firefox
+      float: right;
+
+      &:first-child {
+        /* Make room for collapse button */
+        padding: 30px 0 10px 0;
+      }
+    }
+
+    td:nth-last-of-type(2) {
+      /* Hide last border */
+      border-bottom: none;
+    }
+
+    .smart-table--expand {
+      position: absolute;
+      top: 10px;
+    }
+
+    .bit-btn-expand {
+      &:after {
+        /* Toggle the expand button to a collapse button */
+        content: "-";
+      }
+    }
+
+    .smart-table--inlineHeading {
+      @media screen and (max-width: $break-med) {
+        display: inline;
+      }
+    }
+  }
+}

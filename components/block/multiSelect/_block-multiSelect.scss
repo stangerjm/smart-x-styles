@@ -1,0 +1,49 @@
+////
+/// @group block-multi-select
+/// @author James Stanger
+////
+
+/// Defines a container that will layout the label and select elements horizontally.
+/// <br> *Note: The element will be vertical-aligned on small screens.
+/// @example njk
+///   {% set type = 'multiSelect' %}
+///   {% include 'block-multiSelect.njk' %}
+.block-multiSelect {
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: $break-med) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/// Defines a container that will layout the label and select elements vertically.
+/// @example njk
+///   {% set type = 'multiSelect-stacked' %}
+///   {% include 'block-multiSelect.njk' %}
+.block-multiSelect-stacked {
+  display: flex;
+  flex-direction: column;
+}
+
+/// Styles a multi-select label.
+/// @see .block-multiSelect
+/// @example html
+///   <label class="block-multiSelect--label">Name</label>
+.block-multiSelect--label {
+  margin: 5px 10px;
+}
+
+/// Styles the actual select element in block-multiSelect.
+/// @see .block-multiSelect
+/// @example html
+///   <select class="block-multiSelect--select">
+///     <option>This is a demo</option>
+///   </select>
+.block-multiSelect--select {
+  margin: 5px 10px;
+  padding: 2px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px $theme-generic;
+}

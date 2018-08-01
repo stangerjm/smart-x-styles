@@ -1,0 +1,106 @@
+////
+/// @group bit-input
+/// @author James Stanger
+////
+
+/// Defines a container used to horizontally layout an input field and label in a uniformed way.
+/// <br> *Note: will change to vertical orientation on small screen.
+/// @requires {mixin} stack-input
+/// @requires {variable} break-xs
+/// @example njk
+///   {% set key = 'Name' %}
+///   {% set value = 'James' %}
+///   {% set type = 'text' %}
+///   {% include 'bit-input.njk' %}
+.bit-input {
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: $break-xs) {
+    @include stack-input();
+  }
+}
+
+/// Defines a container used to vertically layout an input field and label in a uniformed way.
+/// @requires {mixin} stack-input
+/// @example njk
+///   {% set key = 'Name' %}
+///   {% set value = 'James' %}
+///   {% set type = 'text' %}
+///   {% set inputClass = 'bit-input-stacked' %}
+///   {% include 'bit-input.njk' %}
+.bit-input-stacked {
+  @include stack-input();
+}
+
+/// Styles an input label.
+/// @example html
+///   <label class="bit-input--label" for="name">Name</label>
+.bit-input--label {
+  margin: 5px 10px 5px 0;
+  display: inline-block;
+  flex: 0 125px;
+}
+
+/// Styles an input field.
+/// <br> *Note: checkbox, number, and other fields may be styled differently.
+/// @requires {variable} theme-black
+/// @requires {variable} theme-generic
+/// @requires {variable} theme-main--dark
+/// @requires {variable} theme-secondary
+/// @example html
+///   <input class="bit-input--field" type="text">
+/// @example html
+///   <input class="bit-input--field" type="number">
+/// @example html
+///   <input class="bit-input--field" type="checkbox">
+.bit-input--field {
+  padding: 5px;
+
+  &:not([type = checkbox]) {
+    /* Select inputs that are not checkboxes. */
+    border: none;
+    box-shadow: inset 1px 1px 4px $theme-black;
+    border-radius: 3px;
+    min-height: 30px;
+    flex: 1;
+    width: 100%;
+  }
+
+  &[type = number] {
+    max-width: 50px;
+  }
+
+  &[readonly] {
+    background: lighten($theme-generic, 5%);
+  }
+
+  &:focus {
+    box-shadow: 0 0 5px $theme-main--dark inset;
+    border: 1px solid $theme-secondary;
+  }
+}
+
+/// Styles only the outside of an input datepicker. The datepicker itself will be handled elsewhere.
+/// <br> *Note: This can be a native datepicker, user-defined datepicker, or third-party component.
+/// @requires {variable} img-directory
+/// @name .bit-input--date
+/// @example html
+///   <input class="bit-input--field bit-input--date" type="text">
+.bit-input--date,
+.bit-input--date[readonly] {
+  background: url($img-directory + '/calendar.svg') 5px / 20px 20px no-repeat;
+  padding-left: 40px;
+}
+
+/// Adds an indicator before the element that the field is required.
+/// <br><br> *NOTE: this class should be applied to the label of the input, as input elements do not allow pseudo elements in all browsers.
+/// @requires {mixin} icon
+/// @name .bit-input--required
+/// @example html
+///   <label class="bit-input--label bit-input--required">Name</label>
+.bit-input--required:before {
+  @include icon('*');
+  padding: 5px;
+  color: red;
+}

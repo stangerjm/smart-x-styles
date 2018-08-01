@@ -1,0 +1,122 @@
+////
+/// @group smart-nav
+/// @author James Stanger
+////
+
+/// Defines a container that will layout the navigation items.
+/// @requires {variable} theme-secondary--deep
+/// @requires {variable} theme-main
+/// @requires {variable} break-med
+/// @requires {mixin} apply-gradient
+/// @example njk
+///   {% include 'smart-nav.njk' %}
+.smart-nav {
+  border-bottom: 1px solid $theme-secondary--deep;
+  background-color: $theme-main;
+  position: relative;
+
+  @include apply-gradient(to left);
+
+  @media screen and (max-width: $break-med) {
+    @include apply-gradient(to top);
+  }
+}
+
+/// Defines a header container for the navigation
+/// @example markup
+///   <header class="smart-nav--header">
+///     <!-- CONTENT GOES HERE -->
+///   </header>
+.smart-nav--header {
+  display: flex;
+  flex-direction: column;
+}
+
+/// Defines a main section for the navigation header.
+/// @requires {variable} break-med
+/// @example html
+///   <header class="smart-nav--header">
+///     <section class="smart-nav--headerMain">
+///       <a href="#" class="smart-nav--logo"></a>
+///     </section>
+///   </header>
+.smart-nav--headerMain {
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: $break-med) {
+    justify-content: center;
+  }
+}
+
+/// Styles a title for the navigation
+/// @example html
+///   <h3 class="smart-nav--title">Admin Console</h3>
+.smart-nav--title {
+  margin: 5px;
+}
+
+/// Defines a container for the secondary section of the navigation header.
+/// @requires {variable} break-med
+/// @example html
+///   <aside class="smart-nav--headerAside">
+///     <span class="smart-nav--userTime">JMST225 - <span class="smart-nav--clock">7/27/2018 01:49:31</span></span>
+///   </aside>
+.smart-nav--headerAside {
+  text-align: right;
+  background: rgba(230, 230, 230, 0.7);
+
+  @media screen and (max-width: $break-med) {
+    text-align: center;
+    background: none;
+  }
+}
+
+/// Styles the logo of the navigation
+/// @requires {mixin} icon-url
+/// @requires {variable} break-med
+/// @example html
+///   <a href="#" class="smart-nav--logo"></a>
+.smart-nav--logo {
+  margin: 5px 10px;
+  display: block;
+  @include icon-url("wspLogo", 125px, 60px);
+
+  @media screen and (max-width: $break-med) {
+    width: 70px;
+    height: 35px;
+  }
+}
+
+/// Defines a container for the navigation list.
+/// <br>*Note: ideally, this element should contain a block-navList component.
+/// @requires {variable} break-med
+/// @example njk
+///   <section class="smart-nav--list">
+///     {% include 'block-navList.njk' %}
+///   </section>
+.smart-nav--list {
+  @media screen and (max-width: $break-med) {
+    margin: 10px;
+  }
+}
+
+/// Defines a simple container for the user / time segment of the navigation header.
+/// @requires {variable} break-med
+/// @example markup
+///   <span class="smart-nav--userTime">
+///     <!-- NOTE: Content should be set programmatically -->
+///   </span>
+.smart-nav--userTime {
+  padding: 10px;
+
+  @media screen and (max-width: $break-med) {
+    display: none;
+  }
+}
+
+/// Defines simple container for the current time to be displayed.
+/// <br> *Note: this selector may not contain any styles, but it is used to target this element via JavaScript.
+/// @example html
+///   <span class="smart-nav--userTime">JMST225 - <span class="smart-nav--clock">7/27/2018 01:49:31</span></span>
+.smart-nav--clock {}
