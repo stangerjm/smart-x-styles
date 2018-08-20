@@ -1,0 +1,9 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 252 252">
+  <title>back</title>
+  <circle cx="126" cy="126" r="126" style="fill: #346bab"/>
+  <line x1="77.97" y1="97.8" x2="143.16" y2="97.8" style="fill: none;stroke: #fff;stroke-miterlimit: 10;stroke-width: 14px"/>
+  <line x1="78.97" y1="155.5" x2="143.84" y2="155.5" style="fill: none;stroke: #fff;stroke-miterlimit: 10;stroke-width: 14px"/>
+  <path d="M556.7,384c0-15.86-12.54-28.69-28-28.69" transform="translate(-386.5 -257.5)" style="fill: none;stroke: #fff;stroke-miterlimit: 10;stroke-width: 14px"/>
+  <path d="M556.7,384c0,16-12.68,29-28.36,29" transform="translate(-386.5 -257.5)" style="fill: none;stroke: #fff;stroke-miterlimit: 10;stroke-width: 14px"/>
+  <polygon points="77.03 97.91 105.45 114.32 105.45 81.5 77.03 97.91" style="fill: #fff;stroke: #fff;stroke-miterlimit: 10;stroke-width: 14px"/>
+</svg>
