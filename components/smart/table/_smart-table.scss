@@ -43,6 +43,7 @@
 .smart-table--heading {
   border: 1px solid $theme-black;
   text-align: center;
+  font-size: 1.1em;
 
   @media screen and (max-width: $break-med) {
     @include hide();
@@ -73,7 +74,7 @@
   text-align: center;
 
   &:nth-child(even) {
-    background: $theme-main--light;
+    background: lighten($theme-generic, 5%);
   }
 
   &:not(.smart-table--head):nth-child(odd) {
@@ -113,6 +114,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   text-align: left;
+  padding-left: 3px;
 
   @media screen and (max-width: $break-med) {
     border: none;

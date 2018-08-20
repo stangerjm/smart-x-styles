@@ -48,7 +48,7 @@
 .bit-icon-details {
   &:after {
     @include icon;
-    @include icon-url('details', 20px, 20px);
+    @include icon-url('details');
 
     margin-right: 0;
   }
@@ -62,7 +62,7 @@
 .bit-icon-delete {
   &:after {
     @include icon();
-    @include icon-url('delete', 20px, 20px);
+    @include icon-url('delete');
   }
 }
 
@@ -74,7 +74,7 @@
 .bit-icon-edit {
   &:after {
     @include icon;
-    @include icon-url('edit', 20px, 20px);
+    @include icon-url('edit');
   }
 }
 

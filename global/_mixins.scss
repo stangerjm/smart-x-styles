@@ -93,8 +93,9 @@
 @mixin stack-input() {
   display: block;
 
-  .bit-input--label {
+  > .bit-input--label {
     display: block;
+    text-align: left;
   }
 }
 
