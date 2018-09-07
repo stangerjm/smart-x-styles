@@ -108,6 +108,9 @@ section {
     }
     .layout-main--content {
         grid-area: content;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
     }
     .layout-main--footer {
         grid-area: footer;
@@ -210,7 +213,7 @@ section {
 .bit-btn-search:before {
     content: " ";
     display: inline-block;
-    background: url("/images/svg/search.svg") no-repeat;
+    background: url("/styles/assets/search.svg") no-repeat;
     width: 15px;
     height: 15px;
 }
@@ -244,7 +247,7 @@ section {
 .bit-btn-reset:before {
     content: " ";
     display: inline-block;
-    background: url("/images/svg/reset.svg") no-repeat;
+    background: url("/styles/assets/reset.svg") no-repeat;
     width: 15px;
     height: 15px;
 }
@@ -282,7 +285,7 @@ section {
 .bit-btn-exit:before {
     content: " ";
     display: inline-block;
-    background: url("/images/svg/exit.svg") no-repeat;
+    background: url("/styles/assets/exit.svg") no-repeat;
     width: 15px;
     height: 15px;
 }
@@ -310,7 +313,7 @@ section {
 .bit-icon-user:after {
     content: " ";
     display: inline-block;
-    background: url("/images/svg/user.svg") no-repeat;
+    background: url("/styles/assets/user.svg") no-repeat;
     width: 20px;
     height: 20px;
 }
@@ -323,7 +326,7 @@ section {
     margin-left: 3px;
     content: " ";
     display: inline-block;
-    background: url("/images/svg/sort.svg") no-repeat;
+    background: url("/styles/assets/sort.svg") no-repeat;
     width: 15px;
     height: 15px;
 }
@@ -337,32 +340,32 @@ section {
 .bit-icon-details:after {
     content: " ";
     display: inline-block;
-    background: url("/images/svg/details.svg") no-repeat;
-    width: 17px;
-    height: 17px;
+    background: url("/styles/assets/details.svg") no-repeat;
+    width: 16px;
+    height: 16px;
     margin-right: 0;
 }
 
 .bit-icon-delete:after {
     content: " ";
     display: inline-block;
-    background: url("/images/svg/delete.svg") no-repeat;
-    width: 15px;
-    height: 15px;
+    background: url("/styles/assets/delete.svg") no-repeat;
+    width: 16px;
+    height: 16px;
 }
 
 .bit-icon-edit:after {
     content: " ";
     display: inline-block;
-    background: url("/images/svg/edit.svg") no-repeat;
-    width: 15px;
-    height: 15px;
+    background: url("/styles/assets/edit.svg") no-repeat;
+    width: 16px;
+    height: 16px;
 }
 
 .bit-icon-back:after {
     content: " ";
     display: inline-block;
-    background: url("/images/svg/back.svg") no-repeat;
+    background: url("/styles/assets/back.svg") no-repeat;
     width: 25px;
     height: 25px;
 }
@@ -370,7 +373,7 @@ section {
 .bit-icon-calendar:after {
     content: " ";
     display: inline-block;
-    background: url("/images/svg/calendar.svg") no-repeat;
+    background: url("/styles/assets/calendar.svg") no-repeat;
     width: 20px;
     height: 20px;
 }
@@ -384,7 +387,7 @@ section {
 .bit-icon-search:before {
     content: " ";
     display: inline-block;
-    background: url("/images/svg/search-black.svg") no-repeat;
+    background: url("/styles/assets/search-black.svg") no-repeat;
     width: 25px;
     height: 25px;
 }
@@ -398,7 +401,7 @@ section {
 .bit-icon-exit:before {
     content: " ";
     display: inline-block;
-    background: url("/images/svg/exit-black.svg") no-repeat;
+    background: url("/styles/assets/exit-black.svg") no-repeat;
     width: 20px;
     height: 20px;
 }
@@ -504,7 +507,7 @@ section {
 
 .bit-input--date,
 .bit-input--date[readonly] {
-    background: url("/images/svg/calendar.svg") 5px/20px 20px no-repeat;
+    background: url("/styles/assets/calendar.svg") 5px/20px 20px no-repeat;
     padding-left: 40px;
 }
 
@@ -520,7 +523,7 @@ section {
  *************************/
 
 .bit-loading {
-    background: url("/images/svg/loading.svg") no-repeat;
+    background: url("/styles/assets/loading.svg") no-repeat;
     width: 35px;
     height: 35px;
     display: inline-block;
@@ -731,7 +734,7 @@ section {
     height: 23px;
     right: 10px;
     top: 17px;
-    background: url("/images/svg/sort.svg") 0 -11px / 15px no-repeat;
+    background: url("/styles/assets/sort.svg") 0 -11px / 15px no-repeat;
 }
 
 .smart-accordion--toggle.is-expanded {
@@ -747,7 +750,7 @@ section {
     height: 23px;
     right: 10px;
     top: 10px;
-    background: url("/images/svg/sort.svg") 0 10px / 15px no-repeat;
+    background: url("/styles/assets/sort.svg") 0 10px / 15px no-repeat;
 }
 
 .smart-accordion--content {
@@ -998,7 +1001,7 @@ section {
 .smart-nav--logo {
     margin: 5px 10px;
     display: block;
-    background: url("/images/svg/wspLogo.svg") no-repeat;
+    background: url("/styles/assets/wspLogo.svg") no-repeat;
     width: 125px;
     height: 60px;
 }
@@ -1177,6 +1180,7 @@ section {
 
 .smart-table--link {
     color: #0d0908;
+    cursor: pointer;
 }
 
 .smart-table--link:hover {

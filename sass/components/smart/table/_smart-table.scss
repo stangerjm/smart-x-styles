@@ -161,6 +161,7 @@
 ///   <a href="#" class="smart-table--link">Name</a>
 .smart-table--link {
   color: $theme-black;
+  cursor: pointer;
 
   &:hover {
     text-decoration: underline;
