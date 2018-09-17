@@ -50,9 +50,9 @@
   /// Defines a content area
   .layout-main--content {
     grid-area: content;
-    // Ensure children layout correctly
-    height: 100%;
-    display: flex;
+    //// Ensure children layout correctly
+    //height: 100%;
+    //display: flex;
     flex-direction: column;
   }
 
