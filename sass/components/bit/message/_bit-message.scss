@@ -1,0 +1,4 @@
+.bit-message-empty {
+  @include message;
+  background-color: $theme-main--light;
+}

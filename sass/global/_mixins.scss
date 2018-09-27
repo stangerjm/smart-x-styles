@@ -104,3 +104,10 @@
 @mixin apply-gradient($direction) {
   background: linear-gradient($direction, lighten($theme-main--dark, 25%), saturate($theme-main--light, 30%));
 }
+
+/// Applies the common messages styles
+@mixin message() {
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+}
