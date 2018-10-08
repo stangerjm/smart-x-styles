@@ -1,0 +1,51 @@
+@import "../../../global/variables";
+
+@mixin paging-section {
+  background: lighten($theme-generic, 7%);
+  border: 1px solid black;
+  padding: 5px 10px;
+}
+
+@mixin paging-button($right: true) {
+  @if $right {
+    border-radius: 0 10px 10px 0;
+  } @else {
+    border-radius: 10px 0 0 10px;
+  }
+
+  box-shadow: if($right, 3px, -3px) 0 3px -2px black;
+  &:active {
+    box-shadow: if($right, -2px, 2px) 0 1px 0;
+    transform: translate(if($right, 1px, -1px));
+  }
+}
+
+.bit-paging {
+  display: inline-flex;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px 0 black;
+  background: black;
+}
+
+.bit-paging--next {
+  @include paging-section;
+  @include paging-button;
+}
+
+.bit-paging--pageNumber {
+  @include paging-section;
+}
+
+.bit-paging--selectedPage {
+  background: $theme-main--deep;
+  color: white;
+}
+
+.bit-paging--previous {
+  @include paging-section;
+  @include paging-button(false);
+}
+
+.bit-paging--nav {
+  @include paging-section;
+}

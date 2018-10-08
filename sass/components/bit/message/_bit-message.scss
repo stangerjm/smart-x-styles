@@ -1,3 +1,6 @@
+@import "../../../global/mixins";
+@import "../../../global/variables";
+
 .bit-message-empty {
   @include message;
   background-color: $theme-main--light;
