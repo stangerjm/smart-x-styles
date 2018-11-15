@@ -46,8 +46,14 @@
 ///   <label class="bit-input--label" for="name">Name</label>
 .bit-input--label {
   margin-right: 10px;
+  padding-bottom: 5px;
   display: inline-block;
-  flex: 0 150px;
+  flex: 0 0 auto;
+}
+
+.bit-input--neatLabel {
+  display: inline-block;
+  flex: 0 0 125px;
 }
 
 /// Styles an input field.
@@ -63,6 +69,7 @@
 /// @example html
 ///   <input class="bit-input--field" type="checkbox">
 .bit-input--field {
+  box-sizing: border-box;
   padding: 5px;
 
   &:not([type = checkbox]) {
@@ -70,13 +77,14 @@
     border: none;
     box-shadow: inset 1px 1px 4px $theme-black;
     border-radius: 3px;
-    min-height: 30px;
+    height: 30px;
     flex: 1;
     width: 100%;
   }
 
   &[type = number] {
-    max-width: 50px;
+    width: 50px;
+    flex: none;
   }
 
   &[readonly] {
@@ -109,6 +117,10 @@
 ///   <label class="bit-input--label bit-input--required">Name</label>
 .bit-input--required:before {
   @include icon('*');
-  padding: 5px;
+  padding: 0 5px;
   color: red;
+}
+
+.bit-input--field.bit-input--error {
+  border: 1px solid red;
 }

@@ -10,7 +10,7 @@
 /// @example html
 ///   <span class="bit-loading"></span>
 .bit-loading {
-  @include icon-url('loading', 35px, 35px);
+  @include icon-url('loading', 25px, 25px);
   display: inline-block;
   animation-name: spin;
   animation-duration: 2000ms;

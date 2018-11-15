@@ -11,7 +11,13 @@
 ///       is used to target the list by parent components and by JavaScript.
 /// @example njk
 ///   {% include 'block-navList.njk' %}
-.block-navList {}
+.block-navList {
+  border-top: 1px solid $theme-secondary;
+
+  @media screen and (max-width: $break-med) {
+    border: none;
+  }
+}
 
 /// Styles the responsive navigation list.
 /// @requires {variable} theme-main--dark
@@ -26,7 +32,7 @@
 .block-navList--list {
   display: flex;
   flex-direction: row;
-  background: lighten($theme-main--dark, 20%);
+  background: $theme-main;
 
   margin: 0;
   padding-left: 0;
@@ -71,12 +77,20 @@
   text-align: center;
   position: relative;
   flex: 1 auto;
+  box-sizing: border-box;
+
+  .bit-link {
+    text-decoration: none;
+    width: 100%;
+  }
 
   &:hover {
     /* apply transitions and border only when not mobile. */
     transition: border-top-width 100ms;
     border-top: 2px groove $theme-secondary--deep;
     margin-top: -2px;
+    border-right: 1px solid white;
+    border-left: 1px solid white;
 
     .bit-dropList {
       /* show any sublists on hover */
@@ -149,5 +163,5 @@
 .block-navList--expandLine {
   width: 60%;
   margin: 4px;
-  border: 2px solid $theme-black;
+  border: 2px solid $theme-white;
 }

@@ -40,9 +40,12 @@
   &:hover {
     transition: border-top-width 100ms;
     border-top: 2px groove $theme-secondary--light;
+    border-bottom: 2px groove $theme-secondary--light;
   }
 
   & > .bit-link {
     color: $theme-black;
+    text-decoration: none;
+    width: 100%;
   }
 }

@@ -231,13 +231,6 @@
       top: 10px;
     }
 
-    .bit-btn-expand {
-      &:after {
-        /* Toggle the expand button to a collapse button */
-        content: "-";
-      }
-    }
-
     .smart-table--inlineHeading {
       @media screen and (max-width: $break-med) {
         display: inline;

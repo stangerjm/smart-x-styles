@@ -10,7 +10,7 @@
 /// Global Images Folder Path
 /// <br>*NOTE: This should be relative to the location the compiled css file will live.
 /// @type String
-$img-directory: '../../styles/assets';
+$img-directory: '../styles/assets';
 
 //*************************
 // THEME COLORS
@@ -24,7 +24,7 @@ $theme-white: #f9f9f9;
 /// <br><br>*NOTE: the main color should be relatively light in order for theming to work correctly. Valid examples include:
 /// #ace1cb, #e1adb0, #ddb9e1, #a8aae1, #a1bae1, #a6d1e1.
 /// @type Color
-$theme-main: #a1bae1;
+$theme-main: #13182b;
 
 /// Main Color Dark
 /// @type Color
@@ -36,7 +36,7 @@ $theme-main--deep: darken($theme-main, 30%);
 
 /// Main Color Light
 /// @type Color
-$theme-main--light: lighten($theme-main, 10%);
+$theme-main--light: #004a80;
 
 /// Link Theme Color
 /// @type Color
@@ -44,7 +44,7 @@ $theme-link: #0063ff;
 
 /// Secondary Theme Color
 /// <br>*Note: this color is more flexible than the first because it is used less frequently. It should still be a brighter color.
-$theme-secondary: #fea104;
+$theme-secondary: #17a3eb;
 
 /// Secondary Color Light
 /// @type Color
@@ -52,7 +52,7 @@ $theme-secondary--light: lighten($theme-secondary, 10%);
 
 /// Secondary Color Deep
 /// @type Color
-$theme-secondary--deep: saturate($theme-secondary, 20%);
+$theme-secondary--deep: darken($theme-secondary, 5%);
 
 /// Black Theme Color
 /// @type Color

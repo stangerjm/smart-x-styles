@@ -1,0 +1,23 @@
+@import "../../../global/variables";
+
+/// Styles an expandable section that will have a smooth height transition.
+/// @requires {variable} theme-generic
+/// @example markup
+///   <section class="block-expandableSection">
+///     <!-- Anything can go here! -->
+///     <h1>Demo!</h1>
+///   </section>
+.block-expandableSection {
+  overflow: hidden;
+  height: 0;
+  position: relative;
+  z-index: 10;
+  transition: height 500ms ease-in-out;
+  border-radius: 0 0 10px 10px;
+
+  > * {
+    /* Immediate children of smart-accordion--content should not
+       have a margin so content can be resized properly. */
+    margin: 0;
+  }
+}

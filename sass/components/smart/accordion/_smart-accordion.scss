@@ -30,50 +30,33 @@
   cursor: pointer;
   min-height: 50px;
   width: 100%;
+  font-size: 2em;
   background: $theme-generic;
   border: none;
   text-align: left;
+  background: lighten($theme-generic, 5%);
 
-  &:hover {
-    background: lighten($theme-generic, 5%);
-
-    &:after {
-      /* Only apply drop-arrow on hover */
-      @include drop-arrow(-11px, 15px);
-    }
+  &:after {
+    /* Only apply drop-arrow on hover */
+    @include drop-arrow(-11px, 15px);
   }
 
   &.is-expanded {
-    /* Styles for expanded smart-accordion */
-    background: saturate($theme-main, 10%);
-
-    &:hover {
-      &:after {
-        /* Only apply drop-arrow on hover */
-        @include drop-arrow(10px, 15px, 10px);
-      }
+    border-radius: 10px 10px 0 0;
+    &:after {
+      /* Only apply drop-arrow on hover */
+      @include drop-arrow(10px, 15px, 10px);
     }
   }
 }
 
-/// Styles the toggle button for the accordion.
-/// @requires {variable} theme-generic
-/// @example markup
-///   <article class="smart-accordion--content">
-///     <!-- Anything can go here! -->
-///     <h1>Demo!</h1>
-///   </article>
+/// Sets the toggle button to be centered
+.smart-accordion--centerToggle {
+  text-align: center;
+}
+
+
 .smart-accordion--content {
-  overflow: hidden;
-  height: 0;
-  position: relative;
-  z-index: 10;
-  transition: height 500ms ease-in-out;
   background: lighten($theme-generic, 10%);
   box-shadow: 0 0 2px 0 inset;
-
-  > * {
-    /* Immediate children of smart-accordion--content should not have a margin so content can be resized properly. */
-    margin: 0;
-  }
 }

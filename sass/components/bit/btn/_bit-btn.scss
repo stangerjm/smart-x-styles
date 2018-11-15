@@ -15,8 +15,8 @@
   border-radius: 5px;
   padding: 0 3px;
   min-height: 35px;
-  min-width: 60px;
-  background: $theme-main--deep;
+  min-width: 35px;
+  background: $theme-secondary--deep;
   border: none;
   color: $theme-white;
   box-sizing: content-box;
@@ -31,6 +31,27 @@
 ///   <button type="button" class="bit-btn bit-btn-clickable">Click</button>
 .bit-btn-clickable {
   @include clickable;
+}
+
+/// Expands a button to make it large size
+/// @example html
+///   <button type="button" class="bit-btn bit-btn-clickable bit-btn-large">Click</button>
+.bit-btn-large {
+  width: 100px;
+}
+
+/// Expands a button to make it medium size
+/// @example html
+///   <button type="button" class="bit-btn bit-btn-clickable bit-btn-medium">Click</button>
+.bit-btn-medium {
+  width: 75px;
+}
+
+/// Expands a button to make it small
+/// @example html
+///   <button type="button" class="bit-btn bit-btn-clickable bit-btn-small">Click</button>
+.bit-btn-small {
+  width: 50px;
 }
 
 /// Styles a search button.
@@ -87,19 +108,21 @@
 ///   <button type="button" class="bit-btn bit-btn-expand"></button>
 .bit-btn-expand {
   @include bit-btn-noBackground;
-  @include clickable-shadowless;
-  line-height: 1.6;
+  line-height: 1.7;
 
-  &:after {
-    @include icon("+");
-    font-size: 15px;
-    font-weight: 900;
-    width: 1.8em;
-    height: 1.8em;
-    text-align: center;
-    border-radius: 1em;
-    background: $theme-secondary--deep;
+  &:active {
+    @include click;
   }
+
+  @include clickable;
+  font-size: 15px;
+  font-weight: 900;
+  min-width: 30px;
+  min-height: 30px;
+  text-align: center;
+  border-radius: 1em;
+  background: $theme-main--light;
+  box-sizing: border-box;
 }
 
 /// Styles an exit button.
@@ -115,4 +138,14 @@
     @include icon();
     @include icon-url('exit');
   }
+}
+
+/// Styles a completely clear button with small box shadow
+/// @requires {mixin} clickable
+/// @example html
+///   <button type="button" class="bit-btn bit-btn-clear"></button>
+.bit-btn-clear {
+  @include clickable;
+  background: none;
+  box-shadow: 0 0 2px;
 }

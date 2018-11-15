@@ -21,6 +21,14 @@
 .smart-details-outlined {
   border: 1px solid $theme-black;
   border-radius: 5px;
+
+  .smart-details--header {
+    border-radius: 5px 5px 0 0;
+  }
+
+  .smart-details--list {
+    border-radius: 0 0 5px 5px;
+  }
 }
 
 /// Optional layout for the header if more than just the title is desired.
@@ -50,7 +58,6 @@
 ///     <h3 class="smart-details--heading">Details</h3>
 ///   </header>
 .smart-details--header {
-  border-radius: 5px 5px 0 0;
   border-bottom: 1px solid $theme-black;
   background: $theme-generic;
 }
@@ -91,6 +98,8 @@
 .smart-details--list {
   margin: 0;
   width: 100%;
+  background: white;
+  color: $theme-black;
 }
 
 /// Defines a container to layout the detail key and value side-by-side.

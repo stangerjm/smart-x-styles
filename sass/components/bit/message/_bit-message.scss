@@ -1,7 +1,22 @@
 @import "../../../global/mixins";
 @import "../../../global/variables";
 
-.bit-message-empty {
-  @include message;
-  background-color: $theme-main--light;
+.bit-message-notice {
+  @include message(black);
+  background-color: #79c6ff;
+}
+
+.bit-message-error {
+  @include message(black);
+  background-color: #ffc3be;
+}
+
+.bit-message-warning {
+  @include message(black);
+  background-color: #fff080;
+}
+
+.bit-message-success {
+  @include message(black);
+  background-color: #a9ffa9;
 }

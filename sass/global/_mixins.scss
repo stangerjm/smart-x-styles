@@ -58,6 +58,11 @@
   background: url($img-directory + "/sort.svg") 0 $position unquote("/") $size no-repeat;
 }
 
+@mixin click {
+  box-shadow: none;
+  transform: translate(2px, 2px);
+}
+
 /// Styles a button to have a click animation.
 /// @requires {variable} theme-black
 /// @example scss - Basic use
@@ -68,8 +73,7 @@
   box-shadow: 2px 1px 1px $theme-black;
 
   &:active {
-    box-shadow: 1px 1px 0;
-    transform: translate(2px, 2px);
+    @include click;
   }
 }
 
@@ -102,12 +106,13 @@
 /// Applies a linear-gradient in the direction specified.
 /// @param {String} $direction - direction gradient should be applied in.
 @mixin apply-gradient($direction) {
-  background: linear-gradient($direction, lighten($theme-main--dark, 25%), saturate($theme-main--light, 30%));
+  background: linear-gradient($direction, $theme-main--light, $theme-main);
 }
 
 /// Applies the common messages styles
-@mixin message() {
+@mixin message($color: white) {
   text-align: center;
   margin: 0;
   padding: 10px;
+  color: $color;
 }

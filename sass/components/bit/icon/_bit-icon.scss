@@ -135,3 +135,10 @@
     @include icon-url('exit-black', 20px, 20px);
   }
 }
+
+.bit-icon-logout {
+  &:after {
+    @include icon();
+    @include icon-url('logout', 20px, 20px);
+  }
+}

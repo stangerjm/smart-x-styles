@@ -11,11 +11,9 @@
 /// @example html
 ///   <a class="bit-link" href="#">Click</a>
 .bit-link {
-  text-decoration: none;
-  color: darken($theme-generic, 40%);
+  color: white;
   transition: color 300ms ease-in-out;
   display: inline-block;
-  width: 100%;
 
   &:hover {
     color: $theme-link;
