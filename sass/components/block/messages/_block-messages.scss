@@ -1,0 +1,14 @@
+////
+/// @group block-action-container
+/// @author James Stanger
+////
+
+/// Sets an asterisk before a message
+.block-messages--message:before {
+  content: '* ';
+}
+
+/// Optionally aligns a message
+.block-messages--alignedMessage {
+  text-align: left;
+}

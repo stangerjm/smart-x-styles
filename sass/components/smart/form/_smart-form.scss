@@ -107,13 +107,8 @@
   }
 }
 
-/// Styles an error message
-.smart-form--error {
-  color: red;
-
-  &:before {
-    content: "* ";
-  }
+.smart-form--errors {
+  padding: 10px 0;
 }
 
 .smart-form--buttonSection {
