@@ -64,7 +64,7 @@
 /// @requires {variable} break-med
 /// @example html
 ///   <aside class="smart-nav--headerAside">
-///     <span class="smart-nav--userTime">JMST225 - <span class="smart-nav--clock">7/27/2018 01:49:31</span></span>
+///     <span class="smart-nav--userInfo">JMST225 - <span class="smart-nav--clock">7/27/2018 01:49:31</span></span>
 ///   </aside>
 .smart-nav--headerAside {
   text-align: right;
@@ -108,10 +108,10 @@
 /// Defines a simple container for the user / time segment of the navigation header.
 /// @requires {variable} break-med
 /// @example markup
-///   <span class="smart-nav--userTime">
+///   <span class="smart-nav--userInfo">
 ///     <!-- NOTE: Content should be set programmatically -->
 ///   </span>
-.smart-nav--userTime {
+.smart-nav--userInfo {
   padding: 10px;
 
   @media screen and (max-width: $break-med) {
@@ -122,7 +122,7 @@
 /// Defines simple container for the current time to be displayed.
 /// <br> *Note: this selector may not contain any styles, but it is used to target this element via JavaScript.
 /// @example html
-///   <span class="smart-nav--userTime">JMST225 - <span class="smart-nav--clock">7/27/2018 01:49:31</span></span>
+///   <span class="smart-nav--userInfo">JMST225 - <span class="smart-nav--clock">7/27/2018 01:49:31</span></span>
 .smart-nav--clock {}
 
 .smart-nav--signOut {
