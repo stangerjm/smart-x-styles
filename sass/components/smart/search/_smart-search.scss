@@ -21,11 +21,11 @@
 
 /// Defines a container for the header of the smart-search component.
 /// @example html
-///   <header class="smart-search--heading">
+///   <header class="smart-search--header">
 ///     <h2 class="smart-search--heading">Search</h2>
 ///     <span class="smart-search--action bit-icon-search"></span>
 ///   </header>
-.smart-search--heading {
+.smart-search--header {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
