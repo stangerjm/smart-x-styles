@@ -20,6 +20,10 @@
   transition: height 500ms ease-in-out;
   border-radius: 0 0 10px 10px;
 
+  // Ensure that the section lays out with no space between child elements
+  display: flex;
+  flex-direction: column;
+
   > * {
     /* Immediate children of smart-accordion--content should not
        have a margin so content can be resized properly. */

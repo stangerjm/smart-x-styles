@@ -18,20 +18,10 @@
 
 .smart-card--actions {
   padding: 10px;
-  border-top: 1px solid;
-}
-
-.smart-card--actions > /deep/ * {
-  margin: 0 5px;
 }
 
 .smart-card--info {
   padding: 10px;
-}
-
-.smart-card--title {
-  font-size: 1.5em;
-  margin: 0;
 }
 
 .smart-card--description {
@@ -40,20 +30,9 @@
 
 .smart-card--toggle {}
 
-@mixin smart-card-title {
-  transition: transform 200ms ease-in-out;
+.smart-card--title {
   margin: 0 auto;
   font-size: 1.5em;
-}
-
-.smart-card--hiddenTitle {
-  @include smart-card-title;
-  transform: translateY(30px);
-}
-
-.smart-card--collapsedTitle {
-  @include smart-card-title;
-  transform: translate(0, 0);
 }
 
 .smart-card--header {
@@ -67,9 +46,6 @@
 
 .smart-card--content {
   background: white;
-
-  & > /deep/ * {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
+  border-top: 1px solid #b4b4b4;
+  border-bottom: 1px solid #b4b4b4;
 }
