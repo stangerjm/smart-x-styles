@@ -5,16 +5,26 @@
 /// @author James Stanger
 ////
 
+@mixin override-loading {
+  & > .bit-loading {
+    width: 100%;
+  }
+}
+
 /// Defines a container that will layout form inputs in a uniform way.
 /// <br> *Note: This selector may not contain any styles, but it is
 ///       used to target the list by parent components and by JavaScript.
 /// @example njk
 ///   {% include 'smart-form.njk' %}
 .smart-form {
+  @include override-loading;
+
   padding: 5px;
 }
 
 .smart-form-centered {
+  @include override-loading;
+
   display: flex;
   flex-direction: column;
   align-items: center;
