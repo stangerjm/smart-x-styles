@@ -142,3 +142,10 @@
     @include icon-url('logout', 20px, 20px);
   }
 }
+
+.bit-icon-reset {
+  &:after {
+    @include icon();
+    @include icon-url('reset-black', 25px, 25px);
+  }
+}
