@@ -3,7 +3,6 @@
 @mixin paging-section {
   background: lighten($theme-generic, 7%);
   border: 1px solid black;
-  padding: 5px 10px;
 }
 
 @mixin paging-button($right: true) {
@@ -15,16 +14,25 @@
 
   box-shadow: if($right, 3px, -3px) 0 3px -2px black;
   &:active {
-    box-shadow: if($right, -2px, 2px) 0 1px 0;
-    transform: translate(if($right, 1px, -1px));
+    box-shadow: if($right, -1px, 2px) 0 1px 0;
+    transform: translate(-1px);
   }
 }
 
 .bit-paging {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bit-paging--x {
   display: inline-flex;
   border-radius: 10px;
   box-shadow: 1px 1px 3px 0 black;
   background: black;
+
+  height: 25px;
+  width: 100%;
 }
 
 .bit-paging--next {
@@ -32,8 +40,16 @@
   @include paging-button;
 }
 
+.bit-paging--numberBox {
+  display: flex;
+  width: 100%;
+}
+
 .bit-paging--pageNumber {
   @include paging-section;
+
+  flex: 1;
+  padding: 0;
 }
 
 .bit-paging--selectedPage {
@@ -48,4 +64,9 @@
 
 .bit-paging--nav {
   @include paging-section;
+
+  padding: 5px;
+  width: 50%;
+  text-align: center;
+  border: none;
 }
