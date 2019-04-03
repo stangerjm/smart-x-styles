@@ -1,0 +1,28 @@
+@import "../../../global/variables";
+
+.stack-searchableTable--paging {
+  margin-right: 20px;
+
+  flex: 1;
+}
+
+.stack-searchableTable--pagingWrapper {
+  display: flex;
+  align-items: flex-end;
+
+  padding: 10px 0;
+
+  @media screen and (max-width: $break-med) {
+    flex-direction: column;
+    align-items: stretch;
+    height: 150px;
+  }
+}
+
+.stack-searchableTable--resultsPerPage {
+  flex: 1;
+
+  @media screen and (max-width: $break-med) {
+    margin-top: 10px;
+  }
+}
