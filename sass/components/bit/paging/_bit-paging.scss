@@ -63,10 +63,7 @@
 }
 
 .bit-paging--nav {
-  @include paging-section;
-
   padding: 5px;
   width: 50%;
   text-align: center;
-  border: none;
 }
