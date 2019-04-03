@@ -100,15 +100,27 @@
   }
 }
 
+.bit-input--dateWrapper {
+  position: relative;
+}
+
 /// Styles only the outside of an input datepicker. The datepicker itself will be handled elsewhere.
 /// <br> *Note: This can be a native datepicker, user-defined datepicker, or third-party component.
 /// @requires {variable} img-directory
 /// @name .bit-input--date
 /// @example html
 ///   <input class="bit-input--field bit-input--date" type="text">
-.bit-input--date,
-.bit-input--date[readonly] {
-  background: url($img-directory + '/calendar.svg') white 5px / 20px 20px no-repeat;
+.bit-input--datepicker {
+  display: inline-block;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 20px;
+  height: 20px;
+  background: url($img-directory + '/calendar.svg') white 0 / 20px 20px no-repeat;
+}
+
+.bit-input--date {
   padding-left: 40px;
 }
 
