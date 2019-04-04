@@ -12,9 +12,6 @@
 /// @example njk
 ///   {% include 'smart-modal.njk' %}
 .smart-modal {
-  /* Hide by default */
-  display: none;
-
   position: fixed;
   z-index: $level-100;
   top: 0;
@@ -34,16 +31,24 @@
 .smart-modal--content {
   position: fixed;
   background: white;
-  top: 50%;
+  top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 600px;
   max-height: 95vh;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
 
   @media screen and (max-width: 820px) {
     width: 80%;
   }
+}
+
+/// Defines a content container that is centered in the middle of the page
+.smart-modal--centeredContent {
+  top: 50%;
+  left: 50%;
 }
 
 /// Defines a header container for the modal.
@@ -60,6 +65,10 @@
 
   background: $theme-generic;
   padding: 5px;
+
+
+  position: relative;
+  min-height: 40px;
 }
 
 /// Styles a close button for the modal if button is not also a bit-btn component.
@@ -70,7 +79,7 @@
 ///   <header class="smart-modal--head">
 ///     <button class="smart-modal--close" type="button">x</button>
 ///   </header>
-.smart-modal--close:not(.bit-btn) {
+.smart-modal--close {
   height: 30px;
   width: 45px;
   padding: 0;
@@ -78,6 +87,10 @@
   border: none;
   box-shadow: $theme-black 0 0 3px 0;
   border-radius: 5px;
+
+  position: absolute;
+  top: 5px;
+  left: 5px;
 }
 
 /// Sets styles for the title of the modal
