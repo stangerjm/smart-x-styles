@@ -46,6 +46,11 @@
   margin-left: 10px;
 }
 
+.smart-search /deep/ .bit-input--field {
+  /* Add a border here so width / height does not change when border is applied on focus */
+  border: 1px solid transparent;
+}
+
 .smart-search--reset {
   @include style-action;
 }
