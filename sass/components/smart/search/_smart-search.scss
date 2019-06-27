@@ -35,19 +35,42 @@
 
 .smart-search--icon {
   padding: 15px 10px;
+
+  @media screen and (max-width: $break-med) {
+    padding: 10px 5px;
+  }
 }
 
 .smart-search--searchContainer {
   display: flex;
   align-items: flex-start;
+  width: 100%;
+
+  @media screen and (max-width: $break-med) {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 
 .smart-search--searchField {
   margin-left: 10px;
+
+  @media screen and (max-width: $break-med) {
+    margin: 0;
+  }
+}
+
+.smart-search /deep/ .bit-input--field {
+  /* Add a border here so width / height does not change when border is applied on focus */
+  border: 1px solid transparent;
 }
 
 .smart-search--reset {
   @include style-action;
+
+  @media screen and (max-width: $break-med) {
+    margin: 5px;
+  }
 }
 
 .smart-search--resetIcon {
