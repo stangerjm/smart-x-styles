@@ -82,15 +82,11 @@
 .smart-modal--close {
   height: 30px;
   width: 45px;
-  padding: 0;
+  padding: 5px;
   background: $theme-generic;
   border: none;
   box-shadow: $theme-black 0 0 3px 0;
   border-radius: 5px;
-
-  position: absolute;
-  top: 5px;
-  left: 5px;
 }
 
 /// Sets styles for the title of the modal
@@ -99,6 +95,7 @@
 .smart-modal--title {
   font-size: 18px;
   margin: 0 auto;
+  padding: 0 10px;
 }
 
 /// Styles an alternative style for the title indicating some sort of warning
