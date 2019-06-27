@@ -17,10 +17,7 @@
   border-spacing: 0;
   border: 1px solid $theme-black;
   border-collapse: separate;
-
-  @media screen and (max-width: $break-lrg) {
-    table-layout: fixed;
-  }
+  table-layout: fixed;
 }
 
 /// Defines a container for the table headings
@@ -47,6 +44,8 @@
   border: 1px solid $theme-black;
   text-align: center;
   font-size: 1.1em;
+  text-overflow: ellipsis;
+  overflow: hidden;
 
   @media screen and (max-width: $break-med) {
     @include hide();
@@ -184,6 +183,7 @@
   position: relative;
   right: 0;
   top: 0;
+  margin-right: 5px;
 
   @media screen and (max-width: $break-med) {
     display: block;
