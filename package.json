@@ -8,7 +8,7 @@
     "gulp-jsbeautifier": "^2.1.2",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.1",
-    "node-sass": "^4.9.2"
+    "node-sass": "^4.13.1"
   },
   "devDependencies": {},
   "scripts": {
